@@ -1,0 +1,18 @@
+@media screen and (max-width: 768px) {
+	.w-sm {
+		width: 80% !important;
+	}
+}
+
+body {
+	min-height: 100vh;
+	/* background: rgb(255, 96, 241) no-repeat center / cover; */
+	background-color: #ffdee9;
+	background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+
+	overflow-x: hidden;
+}
+
+#output textarea {
+	resize: vertical;
+}

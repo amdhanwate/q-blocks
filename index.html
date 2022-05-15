@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q Blocks | Form</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="py-3">
+    <h1 class="mb-5 text-center text-dark">Q Blocks 'the' Replacer</h1>
+
+    <div class="w-50 w-sm d-flex flex-column justify-content-center mx-auto">
+        <div class="initial my-3">
+            <label class="form-label fw-bold" for="initial-para">Enter the Paragraph: </label>
+            <textarea class="form-control" name="initial-para" id="initial-para" cols="30" rows="5"></textarea>
+        </div>
+        <button onclick="replaceText()" class="btn btn-secondary" type="submit">Replace "the"</button>
+    </div>
+
+    <div id="output" class="text-center mt-5 my-3 justify-content-center row d-none">
+        <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
+            <label class="text-start fw-bold mb-2" for="alpha">Alpha Replacement</label>
+            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="alpha" id="alpha" cols="30" rows="5"
+                readonly></textarea>
+        </div>
+        <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
+            <label class="text-start fw-bold mb-2" for="beta">Beta Replacement</label>
+            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="beta" id="beta" cols="30" rows="5"
+                readonly></textarea>
+        </div>
+        <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
+            <label class="text-start fw-bold mb-2" for="gamma">Gamma Replacement</label>
+            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="gamma" id="gamma" cols="30" rows="5"
+                readonly></textarea>
+        </div>
+        <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
+            <label class="text-start fw-bold mb-2" for="theta">Theta Replacement</label>
+            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="theta" id="theta" cols="30" rows="5"
+                readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        const url = "http://127.0.0.1:5000/api/v1/replaceThe"
+        let output = {}
+
+        function replaceText() {
+            const para = document.getElementById("initial-para").value
+
+            if (para.length == 0) {
+                alert("Paragraph cannot be empty..")
+                return
+            }
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = () => {
+                output = JSON.parse(xhttp.responseText);
+                console.log(output);
+            }
+
+            xhttp.open("POST", url, false);
+            xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.send(JSON.stringify({
+                "initial-para": para
+            }));
+
+            document.getElementById("output").classList.remove("d-none");
+
+            document.querySelector("#alpha").value = output.alpha;
+            document.querySelector("#beta").value = output.beta;
+            document.querySelector("#gamma").value = output.gamma;
+            document.querySelector("#theta").value = output.theta;
+
+        }
+    </script>
+
+</body>
+
+</html>
