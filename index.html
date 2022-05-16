@@ -23,28 +23,37 @@
         <button onclick="replaceText()" class="btn btn-secondary" type="submit">Replace "the"</button>
     </div>
 
-    <div id="output" class="text-center mt-5 my-3 justify-content-center row d-none">
+    <div id="output" class="text-center mt-5 mb-3 mx-auto justify-content-center row d-none">
         <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
             <label class="text-start fw-bold mb-2" for="alpha">Alpha Replacement</label>
-            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="alpha" id="alpha" cols="30" rows="5"
+            <textarea class="ps-2 ms-3 rounded-3 opacity-75" name="alpha" id="alpha" cols="30" rows="5"
                 readonly></textarea>
         </div>
         <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
             <label class="text-start fw-bold mb-2" for="beta">Beta Replacement</label>
-            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="beta" id="beta" cols="30" rows="5"
+            <textarea class="ps-2 ms-3 rounded-3 opacity-75" name="beta" id="beta" cols="30" rows="5"
                 readonly></textarea>
         </div>
         <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
             <label class="text-start fw-bold mb-2" for="gamma">Gamma Replacement</label>
-            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="gamma" id="gamma" cols="30" rows="5"
+            <textarea class="ps-2 ms-3 rounded-3 opacity-75" name="gamma" id="gamma" cols="30" rows="5"
                 readonly></textarea>
         </div>
         <div class="mx-2 my-2 col-lg-5 col-10 d-flex flex-column">
             <label class="text-start fw-bold mb-2" for="theta">Theta Replacement</label>
-            <textarea class="ps-2 ms-3 col-10 rounded-3 opacity-75" name="theta" id="theta" cols="30" rows="5"
+            <textarea class="ps-2 ms-3 rounded-3 opacity-75" name="theta" id="theta" cols="30" rows="5"
                 readonly></textarea>
         </div>
     </div>
+
+    <footer class="text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+            © 2022 Copyright:
+            <a class="text-dark" href="https://github.com/amdhanwate">Abhijeet Dhanwate</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 
     <script>
         const url = "https://qblocks-abhijeet.herokuapp.com/api/v1/replaceThe"
